@@ -62,14 +62,14 @@ class MainActivity : AppCompatActivity(), ItemClickListener {
 
     private fun performSearch(query: String) {
         if (query.length > 3) {
-            viewModel.getAllTVShows(query.trim())
+            viewModel.getAllDictionaryData(query.trim())
         } else {
             Toast.makeText(this, "Enter At least 4 Characters", Toast.LENGTH_LONG).show()
         }
     }
 
     private fun LoadApi() {
-        viewModel.responseTvShow.observe(this) { getData ->
+        viewModel.responseDictionaryData.observe(this) { getData ->
             Log.e("LoadApi: ", getData)
             val str = getData.startsWith("[")
             progressDialog.dismiss()

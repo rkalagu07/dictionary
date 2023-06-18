@@ -17,10 +17,10 @@ class DictionaryViewModel @Inject constructor(private val mRepository: Dictionar
 
 
     private val _response = MutableLiveData<String>()
-    val responseTvShow: LiveData<String>
+    val responseDictionaryData: LiveData<String>
         get() = _response
 
-     fun getAllTVShows(search: String) = viewModelScope.launch {
+     fun getAllDictionaryData(search: String) = viewModelScope.launch {
         mRepository.getAllData(search).let {response ->
 
             if (response.isSuccessful){
